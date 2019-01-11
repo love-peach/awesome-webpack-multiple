@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <input type="text" value="" placeholder="source" id="source">
+  <input type="text" value="" placeholder="lineno" id="lineno">
+  <input type="text" value="" placeholder="colno" id="colno">
+  <input type="text" value="" placeholder="message" id="message">
+  <input type="text" value="" placeholder="stack" id="stack">
+
+  <button>提交</button>
+  <div id="show"></div>
+
+  <script>
+
+    let button = document.getElementsByTagName('button')[0]
+
+    button.addEventListener('click', function () {
+      // 获取字段值
+      let source = document.getElementById('source').value
+      let lineno = document.getElementById('lineno').value
+      let colno = document.getElementById('colno').value
+      let message = document.getElementById('message').value
+      let stack = document.getElementById('stack').value
+      // 构建错误对象
+      var errorObj = {
+        message: message || null,
+        source: source || null,
+        lineno: Number(lineno) || null,
+        colno: Number(colno) || null,
+        stack: stack || null
+      };
+
+      if (XMLHttpRequest) {
+        var xhr = new XMLHttpRequest();
+
+        xhr.open('post', 'http://localhost:8001/errorReport', true); // 上报给node中间层处理
+        xhr.setRequestHeader('Content-Type', 'application/json'); // 设置请求头
+        xhr.send(JSON.stringify(errorObj)); // 发送参数
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState == 4 && xhr.status == 200) {
+            console.log(xhr.responseText)
+          }
+        }
+      }
+    })
+
+  </script>
+</body>
+
+</html>

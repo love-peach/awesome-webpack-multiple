@@ -1,0 +1,185 @@
+html body {
+  color: $textColorTitle;
+  background-color: #fff;
+}
+body {
+  font-size: 16px;
+}
+a {
+  display: flex;
+  text-decoration: none !important;
+}
+a:link {
+  text-decoration: none !important;
+}
+a:visited {
+  text-decoration: none !important;
+}
+a:active {
+  text-decoration: none !important;
+}
+.step_sx {
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  width: 100%;
+  height: 127px;
+  margin: 10px auto 70px;
+}
+.warn_desc {
+  color: $textColorSub;
+  font-size: 24px;
+  margin-bottom: 11px;
+  i {
+    background-image: url(/assets/images/xing.png);
+    width: 10px;
+    height: 10px;
+    margin-bottom: 2px;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    margin-right: 10px;
+  }
+}
+
+.btn-primary {
+  background-color: $colorPrimary !important;
+  border-radius: 4px !important;
+}
+
+.navBar {
+  margin-bottom: 40px;
+  width: 100%;
+}
+
+.text-center {
+  text-align: center;
+}
+.fr {
+  float: right;
+}
+.buttonContainer-loan {
+  flex: 1;
+  text-align: center;
+}
+.btn-loan-home {
+  width: 124px;
+  height: 64px;
+  //border: 1px solid #a7a9ab;
+  border-radius: 8px;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+}
+.btn-loan-home-active {
+  background-color: #90c8fe;
+  border-color: $colorPrimary;
+}
+.perdBottomView {
+  height: 58px;
+}
+.amountButtonText {
+  color: #a7a9ab;
+  font-size: 30px;
+}
+.amountButtonTextActive {
+  color: #fff;
+}
+.prodInvalid {
+  position: relative;
+}
+.prodInvalidText {
+  color: #a7a9ab;
+  font-size: 22px;
+  text-align: center;
+  margin-top: 9px;
+  margin-left: 14px;
+}
+
+/* 自定义 页面间距容器 */
+.custom-page-container {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+/* 标题样式 */
+.custom-title-bar {
+  position: relative;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  margin-bottom: 20px;
+  font-size: 30px;
+  color: $textColorTitle;
+  font-weight: 600;
+  line-height: 40px;
+}
+.custom-title-bar:before {
+  content: ' ';
+  position: absolute;
+  left: 0;
+  top: 26px;
+  width: 4px;
+  height: 28px;
+  background: $colorPrimary;
+}
+/* 自定义按钮样式 */
+.custom_btn {
+  border-radius: 8px !important;
+  color: #fff !important;
+}
+.custom_btn_disable {
+  background-color: #D8D8D8 !important;
+}
+.custom_btn_active {
+  background-color: $colorPrimary !important;
+}
+
+/* 自定义文字按钮样式 */
+.custom-text-button {
+  border: 0;
+  outline: none;
+  background-color: transparent;
+}
+.custom-text-button-link {
+  color: $colorPrimary;
+}
+
+/* 提示样式 */
+.custom-tip-wrap {
+  margin-top: 20px;
+  .tip-text-title {
+    display: block;
+    font-size: 24px;
+    color: $textColorSub;
+    margin-bottom: 10px;
+  }
+  .tip-text {
+    display: block;
+    color: $textColorSub;
+    font-size: 24px;
+    margin-bottom: 11px;
+  }
+  .tip-text-warning {
+    color: #f8732c;
+  }
+  .tip-text-danger {
+    color: #FF434B;
+  }
+
+  .tip-prefix {
+    position: relative;
+    padding-left: 20px;
+  }
+  .tip-prefix:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: '*';
+    font-size: 28px;
+  }
+  .tip-prefix-warning:before {
+    color: #f8732c;
+  }
+  .tip-prefix-danger:before {
+    color: #FF434B;
+  }
+}

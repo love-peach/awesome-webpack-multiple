@@ -1,0 +1,23 @@
+// 覆盖 antd-mobile 样式
+
+html:not([data-scale]) .am-list-body:before {
+  background-color: transparent !important;
+}
+
+.am-list-item.am-input-item {
+  padding-left: 0 !important;
+}
+
+.am-list-item {
+  padding-left: 0 !important;
+}
+.am-list-item .am-list-line {
+  padding-right: 0 !important;
+}
+
+.custom-list-item-thumb {
+  .am-list-thumb img{
+    height: 60px;
+    width: 60px;
+  }
+}
