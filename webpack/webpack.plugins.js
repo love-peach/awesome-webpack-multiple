@@ -12,7 +12,9 @@ const happyThreadPool = HappyPack.ThreadPool({ size: 5 });
 const OptimizeCss = require('optimize-css-assets-webpack-plugin');
 
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const ModuleConcatenationPlugin = require('webpack/lib/optimize/ModuleConcatenationPlugin');
 const projectConfig = require('../config/index');
+
 
 const minimistOptions = {
   string: 'env',
@@ -78,4 +80,6 @@ module.exports = [
     canPrint: true, // 是否将插件信息打印到控制台
   }),
   new ExtractTextPlugin('css/[name].css'),
+  // 开启 Scope Hoisting
+  new ModuleConcatenationPlugin(),
 ];

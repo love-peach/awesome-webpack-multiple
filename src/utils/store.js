@@ -1,8 +1,6 @@
 // 本地存储
 import storage from './storage';
 
-console.log(storage, 'storage');
-
 const store = {};
 
 // 本地local存储 方法名与key值对应表

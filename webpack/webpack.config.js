@@ -13,7 +13,7 @@ const minimistOptions = {
 // 为啥要slice(2)? 因为 前两项分别是 node 程序位置和 js 脚本位置
 const commandLineParams = minimist(process.argv.slice(2), minimistOptions);
 
-console.log('\n 当前运行环境变量是：', commandLineParams.env, '\n');
+// console.log('\n 当前运行环境变量是：', commandLineParams.env, '\n');
 
 module.exports = {
   mode: commandLineParams.env === 'production' ? 'production' : 'development',
@@ -25,6 +25,10 @@ module.exports = {
     filename: './js/[name].bundle.js?version=[hash:8]',
     publicPath: '',
   },
+  watchOptions: {
+    // 不监听的 node_modules 目录下的文件
+    ignored: /node_modules/,
+  },
   resolve: {
     extensions: ['.js', '.jsx', '.css'],
     alias: {
@@ -33,6 +37,8 @@ module.exports = {
       styles: path.resolve(__dirname, '../src/styles/'),
       utils: path.resolve(__dirname, '../src/utils/'),
     },
+    // 针对 Npm 中的第三方模块优先采用 jsnext:main 中指向的 ES6 模块化语法的文件
+    mainFields: ['jsnext:main', 'browser', 'main'],
   },
   devServer: {
     contentBase: path.resolve(__dirname, '../dist'),
@@ -40,6 +46,14 @@ module.exports = {
     port: '8090',
     open: true, // 开启浏览器
     hot: true, // 开启热更新
+    historyApiFallback: {
+      rewrites: [
+        { from: /^\/about/, to: '/about.html' },
+        { from: /^\/big-wheel/, to: '/big-wheel.html' },
+        // 其它的都返回 index.html
+        { from: /./, to: '/index.html' },
+      ],
+    },
     proxy: {
       '/api': {
         target: 'https://api.apiopen.top/',
