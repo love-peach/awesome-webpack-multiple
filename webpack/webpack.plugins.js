@@ -15,7 +15,6 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const ModuleConcatenationPlugin = require('webpack/lib/optimize/ModuleConcatenationPlugin');
 const projectConfig = require('../config/index');
 
-
 const minimistOptions = {
   string: 'env',
   default: { env: process.env.NODE_ENV || 'development' },
@@ -79,7 +78,7 @@ module.exports = [
     },
     canPrint: true, // 是否将插件信息打印到控制台
   }),
-  new ExtractTextPlugin('css/[name].css'),
+  new ExtractTextPlugin('css/[name].css?version=[hash:8]'),
   // 开启 Scope Hoisting
   new ModuleConcatenationPlugin(),
 ];
